@@ -1,21 +1,26 @@
 from selenium.webdriver.common.by import By
 
+
 class FaqLocators:
     question = [By.XPATH, "(.//div[@class='accordion__button'])[{}]"]
     answer = [By.XPATH, "(.//div[@class='accordion__panel'])[{}]"]
+    faq_block = [By.CLASS_NAME, "accordion"]
+
 
 class LogoLocators:
-    scooter_button = [By.XPATH, ".//a[@href='/']"]
-    yandex_button = [By.XPATH, ".//a[@href='//yandex.ru']"]
+    scooter_button = (By.CLASS_NAME, "Header_LogoScooter__3lsAR")
+    yandex_button = (By.CLASS_NAME, "Header_LogoYandex__3TSOI")
+
 
 class OrderLocators:
-    order_button_header = [By.XPATH, "//button[text()='Заказать']"]
-    order_button_center = [By.XPATH, '(//button[text()="Заказать"])[2]']
+    order_button_header = [By.CLASS_NAME, "Button_Button__ra12g"]
+    order_button_center = (By.XPATH, "//div[contains(@class, 'FinishButton')]//button[text()='Заказать']")
+
     name = [By.XPATH, "//input[@placeholder='* Имя']"]
     last_name = [By.XPATH, "//input[@placeholder='* Фамилия']"]
     address = [By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"]
     metro_station = [By.XPATH, "//input[@placeholder='* Станция метро']"]
-    list_station = [By.XPATH, "//li[@data-index='0']"]
+    metro_station_option = [By.XPATH, "//div[contains(text(), '{}')]"]
     phone_number = [By.XPATH,"//input[@placeholder='* Телефон: на него позвонит курьер']",]
     next_button = [By.XPATH, ".//button[text()='Далее']"]
     date_delivery = [By.XPATH, "//input[@placeholder='* Когда привезти самокат']"]

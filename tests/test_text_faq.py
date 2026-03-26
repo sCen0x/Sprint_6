@@ -13,7 +13,7 @@ class TestMainPage:
         "index, question, answer", QuestionsAndAnswers.questions_and_answers
     )
     def test_check_question_and_answer(self, driver, index, question, answer):
-        page = QuestionsPage()
+        page = QuestionsPage(driver)
         page.open_browser(driver)
         page.scroll_to_faq(driver)
         question_text = page.get_question(driver, index)

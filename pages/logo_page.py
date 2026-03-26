@@ -1,10 +1,10 @@
 import allure
 from data import Urls
 from locators import OrderLocators, LogoLocators
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from pages.base_page import BasePage
 
-class LogoPage:
+class LogoPage(BasePage):
     
     @allure.step("Открытие браузера")
     def open_browser(self, driver):
@@ -13,17 +13,17 @@ class LogoPage:
 
     @allure.step("Клик по кнопке Заказать в шапке")
     def click_order_button(self, driver):
-        driver.find_element(*OrderLocators.order_button_header).click()
+        self.click(OrderLocators.order_button_header)
         return self
 
     @allure.step("Клик по лого 'Самокат'")
     def click_scooter_button(self, driver):
-        driver.find_element(*LogoLocators.scooter_button).click()
+        self.click(LogoLocators.scooter_button)
         return self
 
     @allure.step("Клик по лого 'Яндекс'")
     def click_dzen_button(self, driver):
-        driver.find_element(*LogoLocators.yandex_button).click()
+        self.click(LogoLocators.yandex_button)
         return self
 
     @allure.step("Переключение вкладки")
@@ -33,7 +33,7 @@ class LogoPage:
 
     @allure.step("Ожидание загрузки страницы")
     def wait_for_page_load(self, driver):
-        WebDriverWait(driver, 10).until(ec.url_to_be(Urls.dzen))
+        self.wait.until(ec.url_to_be(Urls.dzen))
         return self
 
     @allure.step("Проверка URL вкладки 'Дзен'")
