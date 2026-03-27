@@ -14,9 +14,9 @@ class TestMainPage:
     )
     def test_check_question_and_answer(self, driver, index, question, answer):
         page = QuestionsPage(driver)
-        page.open_browser(driver)
-        page.scroll_to_faq(driver)
-        question_text = page.get_question(driver, index)
-        answer_text = page.get_answers(driver, index)
+        page.open_browser()
+        page.scroll_to_faq()
+        question_text = page.get_question(index)
+        answer_text = page.get_answers(index)
         assert question_text == question
         assert answer_text == answer

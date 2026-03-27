@@ -19,7 +19,7 @@ class TestOrderPage:
     )
     def test_make_an_order(self, driver, data_order, button_method):
         page = OrderPage(driver)       
-        page.open_browser(driver)
-        getattr(page, button_method)(driver)
-        page.user_rent_order(driver, **data_order)
-        page.confirmation_window(driver)
+        page.open_browser()
+        getattr(page, button_method)()
+        page.user_rent_order(**data_order)
+        page.confirmation_window()
